@@ -15,12 +15,12 @@ module.exports = {
 
     RNDeviceBrightness.setBrightnessLevel(brightnessLevel);
   },
-  getBrightnessLevel: RNDeviceBrightness.getBrightnessLevel,
 
-  getSystemBrightnessLevel() {
+  getBrightnessLevel() {
     if (Platform.OS !== 'android') {
-      throw Error('⚠️ Android only supported ⚠️');
+      return RNDeviceBrightness.getBrightnessLevel();
+    } else {
+      return RNDeviceBrightness.getSystemBrightnessLevel();
     }
-    return RNDeviceBrightness.getSystemBrightnessLevel();
   },
 };
